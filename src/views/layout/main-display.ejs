@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title><%=appName%> | <%= blocks.title%></title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/mini-default.css" />
+  <link rel="stylesheet" href="/css/custom.css" />
+  <%-scripts%> <%-stylesheets%>
+</head>
+
+<body class="<%= blocks.backgroundClass%>">
+  <div class="page-container">
+    <%- include ../partials/header %>
+    <div class="container" style="padding-top: 100px;">
+      <div class="row">
+        <div class="col-sm-1 col-md-1 col-lg-1"></div>
+        <div class="col-sm-10 col-md-10 col-lg-10"><%-body -%></div>
+        <div class="col-sm-1 col-md-1 col-lg-1"></div>
+      </div>
+    </div>
+    <%- include ../partials/footer %>
+  </div>
+</body>
+
+</html>

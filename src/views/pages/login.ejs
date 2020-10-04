@@ -1,0 +1,53 @@
+<% layout('../layout/main-display') -%>
+<% block('title', 'Login') %>
+<% block('backgroundClass', 'front-2')%>
+
+<div class="row responsive-label">
+    <div class="col-sm-12 col-md-6"></div>
+    <div class="col-sm-12 col-md-6">
+        <form action="/login" method="POST">
+            <% if(errorMessage) {%>
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3"></div>
+                <div class="col-sm-12 col-md">
+                    <p><mark class="secondary"><%=errorMessage%></mark></p>
+                </div>
+            </div>
+            <% } %>
+
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3">
+                    <label for="email" class="doc">Email</label>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <input type="email" placeholder="Email" name="email" id="email" style="width:85%;" class="doc" required aria-required="true">
+                </div>
+            </div>
+
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3">
+                    <label for="password" class="doc">Password</label>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <input type="password" placeholder="Password" name="password" id="password" style="width:85%;" class="doc" required aria-required="true">
+                </div>
+            </div>
+
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3">
+                </div>
+                <div class="col-sm-12 col-md">
+                    <button class="primary large shadowed">Login</button>
+                    <a href="/forgotten-password">Forgotten password?</a>
+
+                </div>
+            </div>
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-12">
+                    <hr />
+                    <a class="button tertiary shadowed margin" href="/register">Register</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

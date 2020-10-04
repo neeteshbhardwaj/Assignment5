@@ -1,0 +1,19 @@
+<header class="header-fixed shadowed">
+  <div class="row">
+    <div class="col-sm-12 col-md-1 col-lg-1"></div>
+    <div class="col-sm-12 col-md-2 col-lg-2">
+      <a href="/" class="logo"><%=appName%></a>
+      
+      <a href="/about" class="button shadowed">About</a>
+    </div>
+    <div class="col-sm-12 col-md-9 col-lg-9" style="text-align: right;">
+      <% if(req.session.user) { %>
+      <span class="logo"><%= req.session.user.name %></span>
+      <a href="/logout" class="button shadowed btn-blue">Logout</a>
+      <% } else { %>
+      <a href="/login" class="button shadowed btn-blue">Login</a>
+      <a href="/register" class="button shadowed btn-green">Register</a>
+      <% } %>
+    </div>
+  </div>
+</header>

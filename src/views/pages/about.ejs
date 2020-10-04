@@ -1,0 +1,28 @@
+<% layout('../layout/main-display') %>
+<% block('title', 'Login') %>
+<h3>About us</h3>
+<p>This website uses copyright free images and videos. All contents are released under the their License, which makes
+    them safe to use without asking
+    for permission or giving credit to the artist - even for commercial purposes. Below are the media sources:
+    <ul>
+        <li><a href="https://pixabay.com/" target="_new">pixabay.com</a></li>
+        <li><a href="https://unsplash.com/" target="_new">unsplash.com</a></li>
+        <li><a href="https://www.pexels.com/" target="_new">pexels.com</a></li>
+    </ul>
+</p>
+<div class="row">
+    <% for(var i = 0; i < aboutUsPageData.length; i++) { var section = aboutUsPageData[i];  %>
+    <div class="card">
+        <div class="section">
+            <h3 class="doc"><%=section.title%></h3>
+        </div>
+        <% if(section.mediaType == 'image') { %>
+        <img class="section media" src="<%=section.content%>" alt="<%=section.title%>">
+        <% } else if(section.mediaType == 'video') { %>
+        <iframe class="section media" width="1280" height="720" src="<%=section.content%>"></iframe>
+        <% } %>
+    </div>
+    <% } %>
+</div>
+
+<div style="height: 100px;"></div>

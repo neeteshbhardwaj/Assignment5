@@ -1,0 +1,32 @@
+<% layout('../layout/main-display') -%>
+<% block('title', 'Posts') %>
+<% block('backgroundClass', 'posts')%>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card fluid">
+            <h1>Dashboard</h1>
+        </div>
+    </div>
+</div>
+<% posts.forEach(function(post){ %>
+<div class="card small" style="margin: 0.5rem 0.25rem;display: inline-block">
+    <h3 class="doc section"><%=post.title%></h3>
+    <p class="doc section"><%=post.body%></p>
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <a href="/post/<%=post.id%>"><span class="icon-info"></span>Details</a>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <a href="#"><span class="icon-share"></span>Share</a>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <a href="#"><span class="icon-bookmark"></span>Flag</a>
+        </div>
+    </div>
+</div>
+<% }); %>
+
+
+
+<div style="height: 100px;"></div>

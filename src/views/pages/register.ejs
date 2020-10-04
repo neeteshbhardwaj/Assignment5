@@ -1,0 +1,98 @@
+<% layout('../layout/main-display') %>
+<% block('title', 'Register') %>
+<% block('backgroundClass', 'front-3')%>
+
+<script>
+    function checkPassword() {
+        if (document.getElementById('password').value ==
+            document.getElementById('confirmPassword').value) {
+            document.getElementById('submit').disabled = false;
+        } else {
+            document.getElementById('submit').disabled = true;
+        }
+    }
+</script>
+<div class="row responsive-label">
+    <div class="col-sm-12 col-md-4"></div>
+    <div class="col-sm-12 col-md-8">
+        <form action="/register" method="POST">
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3">
+                    <label for="name" class="doc">Name</label>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <input type="text" placeholder="Name" name="name" id="name" style="width:85%;" class="doc" required
+                        aria-required="true" pattern="[A-Za-z-0-9\s]+" title="Nick Doe">
+                </div>
+            </div>
+
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3">
+                    <label for="email" class="doc">Email</label>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <input type="email" placeholder="Email" name="email" id="email" style="width:85%;" class="doc"
+                        required aria-required="true">
+                </div>
+            </div>
+
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3">
+                    <label for="password" class="doc">Password</label>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <input type="password" placeholder="Password" name="password" id="password" style="width:85%;"
+                        class="doc" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" required
+                        aria-required="true"
+                        title="Minimum 8 char with atleast One uppercase letter, One lowercase char, One special char and One number"
+                        onchange="checkPassword">
+                </div>
+            </div>
+
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3">
+                    <label for="confirmPassword" class="doc">Confirm Password</label>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <input type="password" placeholder="Confirm Password" name="confirmPassword" id="confirmPassword"
+                        style="width:85%;" class="doc" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                        required aria-required="true" title="Same as above" onchange="checkPassword">
+                </div>
+            </div>
+
+            <div class="row responsive-label" style="margin: 9px -3px;">
+                <div class="col-sm-12 col-md-3">
+                    <label for="gender" class="doc">Gender</label>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <span class="ctm-group"><input type="radio" autocomplete="off" name="gender" id="male" value="male" class="doc"
+                            required aria-required="true"><label for="male" class="doc">Male</label></span>
+                    <span class="ctm-group"> <input type="radio" autocomplete="off" name="gender" id="female" value="female" class="doc"
+                            required aria-required="true"><label for="female" class="doc">Female</label></span>
+                    <span class="ctm-group"><input type="radio" autocomplete="off" name="gender" id="undisclosed" value="undisclosed"
+                            class="doc" required aria-required="true"><label for="undisclosed" class="doc">Prefer not to
+                            say</label></span>
+                </div>
+            </div>
+
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3">
+                    <label for="dateOfBirth" class="doc">Date of birth</label>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <% var now = new Date(); var today = (now.getYear() + 1900) + '-' + now.getMonth()  + '-' + now.getDate();  %>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" style="width:85%;" class="doc" required
+                        aria-required="true" max="<%=today%>">
+                </div>
+            </div>
+
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3">
+                </div>
+                <div class="col-sm-12 col-md">
+                    <button id="submit" class="primary large shadowed">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
