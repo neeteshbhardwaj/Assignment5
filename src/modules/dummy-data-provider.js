@@ -6,7 +6,7 @@ global.dummyUsers = [
         password: 'P@ssw0rd'
     }
 ];
-global.postApiUrl = "https://jsonplaceholder.typicode.com";
+global.postApiUrl = "https://my-json-server.typicode.com/neeteshbhardwaj/fakedata";
 global.aboutUsPageData = [
     {
         title: 'Home Page',
